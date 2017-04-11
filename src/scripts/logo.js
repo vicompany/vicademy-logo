@@ -38,13 +38,16 @@ const valuesFromDate = (date) => {
  * @param {Array} values - An array, each defining the linear "progress" per line.
  * @return {String} The SVG path.
  */
-export default (path, values) => {
+export default (path, values, padding = true) => {
+  const tPadding = padding ? 0.1 : 0;
   let pathSvg = '';
 
   values.forEach((value, i) => {
     const start = path[i];
     const end = path[(i + 1) % path.length];
-    const position = lerp(start, end, value / 9);
+    const t = ((value / 9) * (1 - (tPadding * 2))) + tPadding;
+
+    const position = lerp(start, end, t);
     const operation = i === 0 ? 'M' : 'L';
 
     pathSvg += `${operation} ${position.x} ${position.y}`;
