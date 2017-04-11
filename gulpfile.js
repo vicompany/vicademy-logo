@@ -67,7 +67,7 @@ gulp.task('styles', () => gulp.src(`${paths.styles.source}/**.css`)
 gulp.task('templates', () => gulp.src(`${paths.templates.source}/**.html`)
   .pipe(gulp.dest(paths.templates.destination)));
 
-gulp.task('build', gulp.series('clean', gulp.parallel('images', 'scripts', 'styles', 'templates')));
+gulp.task('build', gulp.series('clean', gulp.parallel('fonts', 'images', 'scripts', 'styles', 'templates')));
 gulp.task('default', gulp.series('build'));
 
 gulp.task('watch', gulp.series('default', () => {
