@@ -76,15 +76,15 @@ body {
 }
 
 .navigation__item {
-    margin: 0 0 -2px;
-    padding: 6px 0;
-
-    border-top: 2px solid #ccc;
-    border-bottom: 2px solid #ccc;
+    margin: 0;
+    padding: 0;
 }
 
 .navigation__link {
     width: 100%;
+
+    margin: 0;
+    padding: 0 0 12px;
 
     text-align: left;
 
@@ -93,4 +93,14 @@ body {
     outline: none;
 
     cursor: pointer;
+}
+
+.navigation__link.is-active {
+    color: #0abe78;
+}
+
+.navigation__date {
+    margin: 0 12px 0 0;
+
+    color: #aeb3bc;
 }
