@@ -1,29 +1,16 @@
-import hexagon from './shapes/hexagon';
-import { default as getLogoPath, valuesFromDate } from './logo';
-
+import Logo from './logo';
 import formatDate from './utils/format-date';
 
-/**
- * Set logo path to given SVG path element.
- *
- * @param {SVGPathElement} path - The path element to apply the path to.
- * @param {String} date - The date to apply.
- */
-const updatePath = (path, date) => {
-  const values = valuesFromDate(date);
-
-  path.setAttribute('d', getLogoPath(hexagon, values));
-};
+const logo = new Logo(document.querySelector('.js-logo-path'));
+const logoBackground = new Logo(document.querySelector('.js-logo-background'));
 
 const presetList = document.querySelector('.js-preset-list');
-const logoPath = document.querySelector('.js-logo-path');
-
-// Set logo background
-const logoPathBackground = document.querySelector('.js-logo-background');
-logoPathBackground.setAttribute('d', getLogoPath(hexagon, [0, 0, 0, 0, 0, 0], false));
+const presetButtons = Array.from(presetList.querySelectorAll('.js-preset-button'));
+const today = formatDate(new Date());
 
 // Update today preset
-document.querySelector('.js-preset-today').dataset.date = formatDate(new Date());
+document.querySelector('.js-preset-today').dataset.date = today;
+document.querySelector('.js-preset-today-display').innerHTML = today;
 
 // Add interactivity for preset list
 presetList.addEventListener('click', (e) => {
@@ -32,8 +19,12 @@ presetList.addEventListener('click', (e) => {
   const button = e.target;
   const date = button.dataset.date;
 
-  updatePath(logoPath, date);
+  presetButtons.forEach(b => b.classList.remove('is-active'));
+  button.classList.add('is-active');
+
+  logo.setData(date);
 });
 
-// Select first item from list
-updatePath(logoPath, presetList.querySelector('button[data-date]').dataset.date);
+// Update logos
+logo.setData(presetList.querySelector('button[data-date]').dataset.date);
+logoBackground.setData('0000-00-00', false);
