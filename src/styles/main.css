@@ -104,3 +104,7 @@ body {
 
     color: #aeb3bc;
 }
+
+.is-hidden {
+    display: none;
+}
