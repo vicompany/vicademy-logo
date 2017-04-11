@@ -64,8 +64,8 @@ body {
 
 .navigation {
     position: fixed;
-    top: 0;
-    left: 0;
+    top: 24px;
+    left: 24px;
 }
 
 .navigation__list {
@@ -73,17 +73,24 @@ body {
     padding: 0;
 
     list-style-type: none;
-
-    border-top: 2px solid #ccc;
 }
 
 .navigation__item {
+    margin: 0 0 -2px;
+    padding: 6px 0;
+
+    border-top: 2px solid #ccc;
     border-bottom: 2px solid #ccc;
 }
 
 .navigation__link {
     width: 100%;
 
+    text-align: left;
+
     background: none;
     border: none;
+    outline: none;
+
+    cursor: pointer;
 }
