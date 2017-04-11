@@ -14,6 +14,14 @@ const paths = {
   clean: [
     path.join(DIR_DESTINATION, '*'),
   ],
+  fonts: {
+    source: path.join(DIR_SOURCE, 'fonts'),
+    destination: path.join(DIR_DESTINATION, 'assets', 'fonts'),
+  },
+  images: {
+    source: path.join(DIR_SOURCE, 'images'),
+    destination: path.join(DIR_DESTINATION, 'assets', 'images'),
+  },
   scripts: {
     source: path.join(DIR_SOURCE, 'scripts'),
     destination: path.join(DIR_DESTINATION, 'assets', 'scripts'),
@@ -21,10 +29,6 @@ const paths = {
   styles: {
     source: path.join(DIR_SOURCE, 'styles'),
     destination: path.join(DIR_DESTINATION, 'assets', 'styles'),
-  },
-  images: {
-    source: path.join(DIR_SOURCE, 'images'),
-    destination: path.join(DIR_DESTINATION, 'assets', 'images'),
   },
   templates: {
     source: path.join(DIR_SOURCE, 'templates'),
@@ -47,6 +51,9 @@ const OPTIONS_ROLLUP_WRITE = {
 };
 
 gulp.task('clean', () => del(paths.clean));
+
+gulp.task('fonts', () => gulp.src(`${paths.fonts.source}/**.{woff,woff2}`)
+  .pipe(gulp.dest(paths.fonts.destination)));
 
 gulp.task('images', () => gulp.src(`${paths.images.source}/**.{gif,jpg,png,svg}`)
   .pipe(gulp.dest(paths.images.destination)));
