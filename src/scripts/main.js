@@ -32,3 +32,12 @@ presetList.addEventListener('click', (e) => {
 // Update logos
 logo.setData(presetList.querySelector('button[data-date]').dataset.date);
 logoBackground.setData('0000-00-00', null, false);
+
+// Add background toggle
+Array.from(document.querySelectorAll('.js-toggle-background')).forEach((radio) => {
+  radio.addEventListener('change', () => {
+    const isVisible = radio.value === 'on';
+
+    logoBackground.element.classList.toggle('is-hidden', !isVisible);
+  });
+});
