@@ -1,7 +1,12 @@
 import Logo from './logo';
 import formatDate from './utils/format-date';
 
-const logo = new Logo(document.querySelector('.js-logo-path'));
+const logo = new Logo(
+  document.querySelector('.js-logo-path'),
+  document.querySelector('.js-logo-fill'),
+  document.querySelector('.js-logo-image'),
+);
+
 const logoBackground = new Logo(document.querySelector('.js-logo-background'));
 
 const presetList = document.querySelector('.js-preset-list');
@@ -17,14 +22,13 @@ presetList.addEventListener('click', (e) => {
   if (e.target.tagName !== 'BUTTON') return;
 
   const button = e.target;
-  const date = button.dataset.date;
 
   presetButtons.forEach(b => b.classList.remove('is-active'));
   button.classList.add('is-active');
 
-  logo.setData(date);
+  logo.setData(button.dataset.date, button.dataset.image);
 });
 
 // Update logos
 logo.setData(presetList.querySelector('button[data-date]').dataset.date);
-logoBackground.setData('0000-00-00', false);
+logoBackground.setData('0000-00-00', null, false);
