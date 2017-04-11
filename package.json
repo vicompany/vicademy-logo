@@ -2,6 +2,7 @@
   "name": "vicademy-logo",
   "scripts": {
     "build": "gulp",
+    "watch": "gulp watch",
     "test": "eslint src/scripts/**"
   },
   "repository": {
