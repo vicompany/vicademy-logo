@@ -12,23 +12,22 @@
 <body>
 
     <div class="container">
-        <div class="foo">
+        <div class="logo">
             <svg height="512" width="512" viewBox="-1 -1 2 2" xmlns="http://www.w3.org/2000/svg" class="shape">
-                <path d="M 50 0 L 100 50 L 50 100 L 0 50 z" fill="#ccc" class="js-logo-background" />
-                <path d="M 50 0 L 100 50 L 50 100 L 0 50 z" fill="black" class="js-logo-path" />
+                <path d="M 50 0 L 100 50 L 50 100 L 0 50 z" fill="#f2f2f4" class="js-logo-background" />
+                <path d="M 50 0 L 100 50 L 50 100 L 0 50 z" fill="#1e283c" class="js-logo-path" />
             </svg>
         </div>
 
-        <div class="list js-preset-list">
-            <ul>
-                <li><button data-date="1987-10-19">Black Monday</button></li>
-                <li><button data-date="2007-03-14">Founding date</button></li>
-                <li><button data-date="2012-01-01">Olaf Muller</button></li>
-                <li><button data-date="2017-11-01">Tim Severien</button></li>
-                <li><button data-date="2017-03-31">10 year anniversary</button></li>
-                <li><button data-date="0000-00-00" class="js-preset-today">Today</button></li>
+        <nav class="navigation js-preset-list">
+            <ul class="navigation__list">
+                <li class="navigation__item"><button class="navigation__link" data-date="2007-03-14">Founding date</button></li>
+                <li class="navigation__item"><button class="navigation__link" data-date="2012-01-01">Olaf Muller</button></li>
+                <li class="navigation__item"><button class="navigation__link" data-date="2017-11-01">Tim Severien</button></li>
+                <li class="navigation__item"><button class="navigation__link" data-date="2017-03-31">10 year anniversary</button></li>
+                <li class="navigation__item"><button class="navigation__link js-preset-today" data-date="0000-00-00">Today</button></li>
             </ul>
-        </div>
+        </nav>
     </div>
 
     <script src="assets/scripts/main.js"></script>
