@@ -1,0 +1,14 @@
+root = true
+
+[*]
+charset = utf-8
+end_of_line = lf
+insert_final_newline = true
+
+[src/**.js]
+indent_style = space
+indent_size = 2
+
+[{.eslintrc,package.json}]
+indent_style = space
+indent_size = 2
