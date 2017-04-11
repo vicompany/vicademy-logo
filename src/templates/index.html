@@ -1,34 +1,38 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>VI Company Academy Logo</title>
+    <link rel="stylesheet" href="assets/styles/main.css">
 </head>
+
 <body>
 
-<div class="container">
-    <div class="foo">
-        <svg height="512" width="512" viewBox="-1 -1 2 2" xmlns="http://www.w3.org/2000/svg" class="shape">
-            <path d="M 50 0 L 100 50 L 50 100 L 0 50 z" fill="#ccc" class="js-hexagon" />
-            <path d="M 50 0 L 100 50 L 50 100 L 0 50 z" fill="black" class="js-path" />
-        </svg>
+    <div class="container">
+        <div class="foo">
+            <svg height="512" width="512" viewBox="-1 -1 2 2" xmlns="http://www.w3.org/2000/svg" class="shape">
+                <path d="M 50 0 L 100 50 L 50 100 L 0 50 z" fill="#ccc" class="js-hexagon" />
+                <path d="M 50 0 L 100 50 L 50 100 L 0 50 z" fill="black" class="js-path" />
+            </svg>
+        </div>
+
+        <div class="list js-preset-list">
+            <ul>
+                <li><button data-date="1987-10-19">Black Monday</button></li>
+                <li><button data-date="2007-03-14">Founding date</button></li>
+                <li><button data-date="2012-01-01">Olaf Muller</button></li>
+                <li><button data-date="2017-11-01">Tim Severien</button></li>
+                <li><button data-date="2017-03-31">10 year anniversary</button></li>
+                <li><button data-date="0000-00-00" class="js-preset-today">Today</button></li>
+            </ul>
+        </div>
     </div>
 
-    <div class="list js-preset-list">
-        <ul>
-            <li><button data-date="1987-10-19">Black Monday</button></li>
-            <li><button data-date="2007-03-14">Founding date</button></li>
-            <li><button data-date="2012-01-01">Olaf Muller</button></li>
-            <li><button data-date="2017-11-01">Tim Severien</button></li>
-            <li><button data-date="2017-03-31">10 year anniversary</button></li>
-            <li><button data-date="0000-00-00" class="js-preset-today">Today</button></li>
-        </ul>
-    </div>
-</div>
-
-<script src="assets/scripts/main.js"></script>
+    <script src="assets/scripts/main.js"></script>
 
 </body>
+
 </html>
