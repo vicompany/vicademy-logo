@@ -1,3 +1,89 @@
+@charset "UTF-8";
+
+@font-face {
+    font-family: wigrum-web;
+    font-style: normal;
+    font-weight: 400;
+    font-stretch: normal;
+    src: url(/assets/fonts/wigrum-web-regular.eot), url(/assets/fonts/wigrum-web-regular.eot?#iefix) format("embedded-opentype"), url(/assets/fonts/wigrum-web-regular.woff) format("woff")
+}
+
+@font-face {
+    font-family: wigrum-web;
+    font-style: italic;
+    font-weight: 400;
+    font-stretch: normal;
+    src: url(/assets/fonts/wigrum-web-regular-italic.eot), url(/assets/fonts/wigrum-web-regular-italic.eot?#iefix) format("embedded-opentype"), url(/assets/fonts/wigrum-web-regular-italic.woff) format("woff")
+}
+
+@font-face {
+    font-family: wigrum-web;
+    font-style: normal;
+    font-weight: 700;
+    font-stretch: normal;
+    src: url(/assets/fonts/wigrum-web-bold.eot), url(/assets/fonts/wigrum-web-bold.eot?#iefix) format("embedded-opentype"), url(/assets/fonts/wigrum-web-bold.woff) format("woff")
+}
+
+@font-face {
+    font-family: wigrum-web;
+    font-style: italic;
+    font-weight: 700;
+    font-stretch: normal;
+    src: url(/assets/fonts/wigrum-web-bold-italic.eot), url(/assets/fonts/wigrum-web-bold-italic.eot?#iefix) format("embedded-opentype"), url(/assets/fonts/wigrum-web-bold-italic.woff) format("woff")
+}
+
+html {
+    box-sizing: border-box;
+}
+
+*,
+:after,
+:before {
+    box-sizing: inherit;
+
+    color: #1e283c;
+    font: 1rem/1.5 wigrum-web, neue haas grotesk, helvetica neue, helvetica, arial, sans-serif;
+    font-variant-ligatures: normal;
+    -webkit-font-kerning: normal;
+    font-kerning: normal;
+    text-rendering: optimizeLegibility;
+}
+
 body {
-    background-color: #f00;
+    margin: 0;
+    padding: 0;
+}
+
+.container {
+    align-items: center;
+    justify-content: center;
+    display: flex;
+
+    min-height: 100vh;
+}
+
+.navigation {
+    position: fixed;
+    top: 0;
+    left: 0;
+}
+
+.navigation__list {
+    margin: 0;
+    padding: 0;
+
+    list-style-type: none;
+
+    border-top: 2px solid #ccc;
+}
+
+.navigation__item {
+    border-bottom: 2px solid #ccc;
+}
+
+.navigation__link {
+    width: 100%;
+
+    background: none;
+    border: none;
 }
