@@ -1,3 +1,8 @@
-import logo from './logo';
+import hexagon from './hexagon';
+import { default as getLogoPath, valuesFromDate } from './logo';
 
-logo(document.querySelector('.js-logo-container'));
+const path = hexagon;
+const values = valuesFromDate('14-03-2007');
+
+document.querySelector('.js-path')
+  .setAttribute('d', getLogoPath(path, values));
