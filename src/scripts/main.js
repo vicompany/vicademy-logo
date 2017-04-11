@@ -18,13 +18,15 @@ const updatePath = (path, date) => {
 const presetList = document.querySelector('.js-preset-list');
 const presetButtons = Array.from(presetList.querySelectorAll('.js-preset-button'));
 const logoPath = document.querySelector('.js-logo-path');
+const today = formatDate(new Date());
 
 // Set logo background
 const logoPathBackground = document.querySelector('.js-logo-background');
 logoPathBackground.setAttribute('d', getLogoPath(hexagon, [0, 0, 0, 0, 0, 0], false));
 
 // Update today preset
-document.querySelector('.js-preset-today').dataset.date = formatDate(new Date());
+document.querySelector('.js-preset-today').dataset.date = today;
+document.querySelector('.js-preset-today-display').innerHTML = today;
 
 // Add interactivity for preset list
 presetList.addEventListener('click', (e) => {
