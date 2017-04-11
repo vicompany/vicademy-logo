@@ -1,4 +1,4 @@
-const coordinate = (x, y) => ({ x, y });
+import coordinate from './utils/coordinate';
 
 /**
  * Linear interpolate a point on a path between a and b.

@@ -1,4 +1,4 @@
-import hexagon from './hexagon';
+import hexagon from './shapes/hexagon';
 import { default as getLogoPath, valuesFromDate } from './logo';
 
 import formatDate from './utils/format-date';

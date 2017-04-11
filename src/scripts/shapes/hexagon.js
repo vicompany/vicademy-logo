@@ -1,4 +1,4 @@
-import { coordinate } from './logo';
+import coordinate from '../utils/coordinate';
 
 const PI_TWO = Math.PI * 2;
 const path = new Array(6);
