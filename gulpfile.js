@@ -1,7 +1,10 @@
-const del = require('del');
-const gulp = require('gulp');
 const path = require('path');
+
+const gulp = require('gulp');
+const plumber = require('gulp-plumber');
+
 const browserSync = require('browser-sync').create();
+const del = require('del');
 
 const rollup = require('rollup');
 const babel = require('rollup-plugin-babel');
@@ -44,44 +47,47 @@ const OPTIONS_ROLLUP = {
   ],
 };
 
-const OPTIONS_ROLLUP_WRITE = {
-  format: 'iife',
-  dest: path.join(paths.scripts.destination, 'main.js'),
-  sourceMap: true,
-};
-
 gulp.task('clean', () => del(paths.clean));
 
-gulp.task('fonts', () => gulp.src(`${paths.fonts.source}/**.{woff,woff2}`)
+gulp.task('fonts', () => gulp.src(`${paths.fonts.source}/**/*.{woff,woff2}`)
+  .pipe(plumber())
   .pipe(gulp.dest(paths.fonts.destination)));
 
-gulp.task('images', () => gulp.src(`${paths.images.source}/**.{gif,jpg,png,svg}`)
+gulp.task('images', () => gulp.src(`${paths.images.source}/**/*.{gif,jpg,png,svg}`)
+  .pipe(plumber())
   .pipe(gulp.dest(paths.images.destination)));
 
 gulp.task('scripts', () => rollup.rollup(OPTIONS_ROLLUP)
-  .then(bundle => bundle.write(OPTIONS_ROLLUP_WRITE)));
+  .then(bundle => bundle.write({
+    dest: path.join(paths.scripts.destination, 'main.js'),
+    format: 'iife',
+    sourceMap: true,
+  }))
+  .catch(e => console.error(e.stack)));
 
-gulp.task('styles', () => gulp.src(`${paths.styles.source}/**.css`)
+gulp.task('styles', () => gulp.src(`${paths.styles.source}/**/*.css`)
+  .pipe(plumber())
   .pipe(gulp.dest(paths.styles.destination)));
 
-gulp.task('templates', () => gulp.src(`${paths.templates.source}/**.html`)
+gulp.task('templates', () => gulp.src(`${paths.templates.source}/**/*.html`)
+  .pipe(plumber())
   .pipe(gulp.dest(paths.templates.destination)));
 
 gulp.task('build', gulp.series('clean', gulp.parallel('fonts', 'images', 'scripts', 'styles', 'templates')));
 gulp.task('default', gulp.series('build'));
 
-gulp.task('watch', gulp.series('default', () => {
-  const reload = (done) => {
-    browserSync.reload();
-    done();
-  };
+const reload = (done) => {
+  browserSync.reload();
+  done();
+};
 
+gulp.task('watch', gulp.series('default', () => {
   browserSync.init({
     server: './dist',
   });
 
-  gulp.watch(`${paths.images.source}/**.js`, gulp.series('images', reload));
-  gulp.watch(`${paths.scripts.source}/**.js`, gulp.series('scripts', reload));
-  gulp.watch(`${paths.styles.source}/**.css`, gulp.series('styles', reload));
-  gulp.watch(`${paths.templates.source}/**.html`, gulp.series('templates', reload));
+  gulp.watch(`${paths.images.source}/**/*.js`, gulp.series('images', reload));
+  gulp.watch(`${paths.scripts.source}/**/*.js`, gulp.series('scripts', reload));
+  gulp.watch(`${paths.styles.source}/**/*.css`, gulp.series('styles', reload));
+  gulp.watch(`${paths.templates.source}/**/*.html`, gulp.series('templates', reload));
 }));
