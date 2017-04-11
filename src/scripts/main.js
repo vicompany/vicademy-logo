@@ -16,6 +16,7 @@ const updatePath = (path, date) => {
 };
 
 const presetList = document.querySelector('.js-preset-list');
+const presetButtons = Array.from(presetList.querySelectorAll('.js-preset-button'));
 const logoPath = document.querySelector('.js-logo-path');
 
 // Set logo background
@@ -31,6 +32,9 @@ presetList.addEventListener('click', (e) => {
 
   const button = e.target;
   const date = button.dataset.date;
+
+  presetButtons.forEach(b => b.classList.remove('is-active'));
+  button.classList.add('is-active');
 
   updatePath(logoPath, date);
 });
