@@ -65,7 +65,7 @@ export default class Logo {
       if (!this.previousImage && image) {
         animationChain([setImage, fadeIn, fillHide, finishAnimation]).start();
       } else if (this.previousImage && image) {
-        animationChain([fillShow, fadeOut, setImage, fadeIn, fillHide, finishAnimation]).start();
+        animationChain([fadeOut, setImage, fadeIn, finishAnimation]).start();
       } else if (this.previousImage && !image) {
         animationChain([fillShow, fadeOut, finishAnimation]).start();
       } else {
