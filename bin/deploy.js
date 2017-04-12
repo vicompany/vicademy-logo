@@ -5,7 +5,8 @@ const exec = require('child_process').exec;
 
 const globby = require('globby');
 
-const DIR_BUILD = path.join(__dirname, '..', 'dist');
+const DIR_ROOT = path.join(__dirname, '..');
+const DIR_BUILD = path.join(DIR_ROOT, 'dist');
 const DIR_TMP = path.join(os.tmpdir(), 'vi-logo-build');
 
 const copy = (src, dest) => new Promise((resolve, reject) => {
@@ -40,8 +41,9 @@ const run = (command, ...args) => new Promise((resolve, reject) => {
 
 const now = new Date();
 const subfiles = [
-  `${__dirname}/**/*`,
-  `!${__dirname}/.git`,
+  `${DIR_ROOT}/**/*`,
+  `!${DIR_ROOT}/.git`,
+  `!${DIR_ROOT}/node_modules`,
 ];
 
 run('node', process.env.npm_execpath, 'run', 'build')
@@ -50,7 +52,7 @@ run('node', process.env.npm_execpath, 'run', 'build')
   .then(() => run('git checkout gh-pages'))
   .then(() => globby(subfiles))
   .then(files => Promise.all(files.map(file => remove(file))))
-  .then(() => copy(DIR_TMP, __dirname))
+  .then(() => copy(DIR_TMP, DIR_ROOT))
   // .then(() => run('git', 'add', '.'))
   // .then(() => run('git', 'commit', '-m', `Update ${now.toString()}`))
   // .then(() => run('git', 'push'))
