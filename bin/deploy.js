@@ -41,9 +41,9 @@ const run = (command, ...args) => new Promise((resolve, reject) => {
 
 const now = new Date();
 const subfiles = [
-  `${DIR_ROOT}/**/*`,
-  `!${DIR_ROOT}/.git`,
-  `!${DIR_ROOT}/node_modules`,
+  `${DIR_ROOT}/*`,
+  `!${DIR_ROOT}/.git/**`,
+  `!${DIR_ROOT}/node_modules/**`,
 ];
 
 run('node', process.env.npm_execpath, 'run', 'build')
