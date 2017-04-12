@@ -20,7 +20,7 @@ const lerp = (a, b, t) => coordinate(
  */
 const valuesFromDate = (date) => {
   const radix = 10;
-  const [year, month, day] = date.split(/-/g);
+  const [year, month, day] = (date || '0000-00-00').split(/-/g);
 
   return [
     Number.parseInt(day.substr(0, 1), radix),

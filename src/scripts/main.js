@@ -22,11 +22,12 @@ presetList.addEventListener('click', (e) => {
   if (e.target.tagName !== 'BUTTON') return;
 
   const button = e.target;
+  const success = logo.setData(button.dataset.date, button.dataset.image);
 
-  presetButtons.forEach(b => b.classList.remove('is-active'));
-  button.classList.add('is-active');
-
-  logo.setData(button.dataset.date, button.dataset.image);
+  if (success) {
+    presetButtons.forEach(b => b.classList.remove('is-active'));
+    button.classList.add('is-active');
+  }
 });
 
 // Update logos
