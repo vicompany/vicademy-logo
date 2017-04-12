@@ -2,6 +2,7 @@
   "name": "vicademy-logo",
   "scripts": {
     "build": "gulp",
+    "deploy": "node ./bin/deploy",
     "watch": "gulp watch",
     "test": "eslint src/scripts/**"
   },
@@ -25,5 +26,8 @@
     "rollup": "^0.41.6",
     "rollup-plugin-babel": "^2.7.1",
     "rollup-plugin-node-resolve": "^3.0.0"
+  },
+  "dependencies": {
+    "fs-extra": "^2.1.2"
   }
 }
