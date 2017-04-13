@@ -1,38 +1,5 @@
 @charset "UTF-8";
 
-/* Typefaces */
-@font-face {
-    font-family: wigrum-web;
-    font-style: normal;
-    font-weight: 400;
-    font-stretch: normal;
-    src: url(/assets/fonts/wigrum-web-regular.eot), url(/assets/fonts/wigrum-web-regular.eot?#iefix) format("embedded-opentype"), url(/assets/fonts/wigrum-web-regular.woff) format("woff")
-}
-
-@font-face {
-    font-family: wigrum-web;
-    font-style: italic;
-    font-weight: 400;
-    font-stretch: normal;
-    src: url(/assets/fonts/wigrum-web-regular-italic.eot), url(/assets/fonts/wigrum-web-regular-italic.eot?#iefix) format("embedded-opentype"), url(/assets/fonts/wigrum-web-regular-italic.woff) format("woff")
-}
-
-@font-face {
-    font-family: wigrum-web;
-    font-style: normal;
-    font-weight: 700;
-    font-stretch: normal;
-    src: url(/assets/fonts/wigrum-web-bold.eot), url(/assets/fonts/wigrum-web-bold.eot?#iefix) format("embedded-opentype"), url(/assets/fonts/wigrum-web-bold.woff) format("woff")
-}
-
-@font-face {
-    font-family: wigrum-web;
-    font-style: italic;
-    font-weight: 700;
-    font-stretch: normal;
-    src: url(/assets/fonts/wigrum-web-bold-italic.eot), url(/assets/fonts/wigrum-web-bold-italic.eot?#iefix) format("embedded-opentype"), url(/assets/fonts/wigrum-web-bold-italic.woff) format("woff")
-}
-
 /* Base */
 html {
     box-sizing: border-box;
@@ -44,7 +11,7 @@ html {
     box-sizing: inherit;
 
     color: #1e283c;
-    font: 1rem/1.5 wigrum-web, neue haas grotesk, helvetica neue, helvetica, arial, sans-serif;
+    font: 1rem/1.5 neue haas grotesk, helvetica neue, helvetica, arial, sans-serif;
     font-variant-ligatures: normal;
     -webkit-font-kerning: normal;
     font-kerning: normal;
